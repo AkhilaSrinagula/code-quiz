@@ -11,22 +11,28 @@
     <title>Quiz App</title>
   </head>
   <body>
+    
     <div id="wrapper">
         <a href ="highscores.html">View high scores</a>
       <div id="currentTime"></div>
-      <div id="questions">
-        <h1>Code Quiz</h1>
-        <p>
+      <div id="codeQuiz"></div>
+        <h1>JavaScript Quiz Challenge</h1>
+
+        <p class="info">
           Try to answer all the code related questions.<br>
           Keep in mind that when
           you answer a question incorrectly<br> the time is subtracted from the
-          clock by 10 seconds!
+          clock by <span>10 seconds</span>!
         </p>
-        <ul id ="optionsUl"></ul>
+        
         <button id="startBtn">Start Quiz</button>
       </div>
     </div>
 
-    <script type="text/javascript" src="assets/js/script.js"></script>
+  
+
+    <script type="text/javascript" src="assets/js/questions.js"></script>
+    <script type="text/javascript" src="assets/js/logic.js"></script>
+
   </body>
 </html>
