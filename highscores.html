@@ -13,27 +13,17 @@
   <body>
     
     <div id="wrapper">
-        <a href ="highscores.html">View high scores</a>
-      <div id="currentTime"></div>
-      <div id="codeQuiz"></div>
-        <h1>JavaScript Quiz Challenge</h1>
+        <div id="currentTime"></div>
+        <div id="codeQuiz">
+            <h1>Highscores</h1>
+            <ul id="hightscore"></ul>
 
-        <p class="info">
-          Try to answer all the code related questions.<br>
-          Keep in mind that when
-          you answer a question incorrectly<br> the time is subtracted from the
-          clock by <span>10 seconds</span>!
-        </p>
-        <ul id="choicesUl"></ul>
-        <button id="startBtn">Start Quiz</button>
-      </div>
+            <button id="goBack">Go Back</button>
+            <button id="clear" value="reset">Clear Highscore</button>
+        
+        
+        </div>
     </div>
 
-  
-
     
-    
-    <script type="text/javascript" src="assets/js/questions.js"></script>
-
-  </body>
-</html>
+    <script type="text/javascript" src="assets/js/logic.js"></script>

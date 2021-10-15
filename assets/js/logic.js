@@ -1,25 +1,11 @@
-//var for questions
-var myQuestions = [{
-    prompt: "Inside which HTML element do we put the JavaScript?",
-    choices: ["<javascript>","<scripting>","<script>","<js>"],
-    answer: "<script>"
-},{
-    prompt: "How does a FOR loop start?",
-    choices: ["for(i=0;i<=5;i++)","for(i=0;i<=5)","fori=1to5","for(i<=5;i++"],
-    answer: "for(i=0;i<=5;i++)"
-},{
-    prompt: "How do you round the number 7.25, to the nearest integer?",
-    choices: ["Math.rnd(7.25)","round(7.25)","rnd(7.25)","Math.round(7.25)"],
-    answer: "Math.round(7.25)"
-},{
-    prompt: "Which event occurs when the user clicks on an HTML element??",
-    choices: ["onclick","onmouseover","onchange","onmouseclick"],
-    answer: "onclick"
-},{
-    prompt: "How do you find the number with the highest value of x and y?",
-    choices: ["Math.max(x,y)","top(x, y)","ceil(x, y)","Math.ceil(x, y)"],
-    answer: "Math.max(x, y)"
-}];
+
+//declared variables
+var wrapper = document.querySelector("#wrapper");
+var timer = document.querySelector("#startBtn");
+var codeQuiz = document.querySelector("#codeQuiz");
+var currentTime = document.querySelector("#currentTime"); 
+var ulCreate = document.createElement("ul");
+
 
 var questionIndex = 0;
 var score = 0;
@@ -43,4 +29,48 @@ timer.addEventListener("click", function () {
     exhibit(questionIndex);
 });
 
-var myQuiz = new codeQuiz(myQuestions);
+function exhibit(startGame) {
+    codeQuiz.html = "";
+    ulCreate.html = "";
+    for (var i = 0; i < myQuestions.length; i++) {
+        var userQuestion = myQuestions[startGame].prompt;
+        var userChoices = myQuestions[startGame].choices;
+        codeQuiz.textContent = userQuestion
+    }
+
+    userChoices.forEach(function (newItem) {
+        var listItem = document.createElement("li");
+        listItem.textContent = newItem;
+        codeQuiz.appendChild(ulCreate);
+        ulCreate.appendChild(listItem);
+        listItem.addEventListener("click", (compare));
+    })
+}
+
+function compare(event) {
+    var element = event.target;
+
+    if(element.matches("li")) {
+
+        var createDiv = document.createElement("div");
+        createDiv.setAttribute("id", "createDiv");
+        if (element.textContent == codeQuiz[questionIndex].answer) {
+            score++;
+            createDiv.textContent = "Correct! The answer is: " + codeQuiz[questionIndex].answer;
+        } else {
+            timeLeft = timeLeft - penalty;
+            createDiv.textContent = "Wrong! The correct answer is: " + codeQuiz[questionIndex].answer;
+        }
+    }
+    questionIndex++;
+
+    if (questionIndex >= myQuestions.length) {
+        allDone();
+        createDiv.textContent = "End of Quiz!" + "" + "You got " + score + "/" +myQuestions.length + "Correct!";
+    } else {
+        exhibit(questionIndex);
+    }
+    codeQuiz.appendChild(createDiv);
+}
+
+
