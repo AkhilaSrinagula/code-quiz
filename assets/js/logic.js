@@ -8,24 +8,28 @@ var start =document.querySelector("#start");
 var startGame = 0;
 var score = 0;
 var timeLeft = 75;
-var holdInterval =0;
+var holdInterval ;
 var penalty = 10;
 
 var ulCreate = document.createElement("ul");
 
 timer.addEventListener("click", function () {
-    if (holdInterval === 0) {
+    //if (holdInterval === 0) {
         holdInterval = setInterval(function () {
             timeLeft--;
             currentTime.textContent = "Timer :" + timeLeft;
 
             if (timeLeft <= 0) {
+                console.log ("hello");
                 clearInterval(holdInterval);
+                console.log ("hello");
                 gameOver();
+                console.log ("hello");
                 currentTime.textContent = "Time up!";
+
             }
         }, 1000);
-    }
+
     exhibit(startGame);
 });
 
@@ -149,13 +153,12 @@ function gameOver() {
     }
     });
 
-    var createGoBack = document.createElement("button");
-    createGoBack.setAttribute("id", GoBack);
-    createGoBack.textContent = "Go Back";
+    //var createGoBack = document.createElement("button");
+    //createGoBack.textContent = "Go Back";
 
-    codeQuiz.appendChild(createGoBack);
+    //codeQuiz.appendChild(createGoBack);
 
-    createGoBack.addEventListener("click", function() {
-        
-    })
+     
+
+     
 }
