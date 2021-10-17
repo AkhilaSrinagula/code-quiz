@@ -1,34 +1,30 @@
-const userName = document.getElementById("userName");
-const saveScoreBtn = document.getElementById("saveScoreBtn");
-const finalScore = document.getElementById("finalScore");
-const mostRecentScore = localStorage.getItem("mostRecentScore");
+var highScore = document.querySelector("#highScore");
+var clear = document.querySelector("#clear");
+var goBack = document.querySelector("#goBack");
 
-const highScores = JSON.parse(localStorage.getItem("highscores")) || [];
+// // Event listener to clear scores 
+// clear.addEventListener("click", function () {
+//     localStorage.clear();
+//     location.reload();
+// });
+// Retreives local stroage 
+var allScores = JSON.parse(window.localStorage.getItem("allScores")) || [];
+allScores.push(finalScore);
+        //var newScore = JSON.stringify("allScores");
+        localStorage.setItem("allscores", JSON.stringify(allScores));
+        window.location.href = "highscores.html";
 
-const MAX_HIGH_SCORES = 5;
-console.log(highScores);
+if (allScores !== null) {
 
-finalScore.innerText = mostRecentScore;
+    for (var i = 0; i < allScores.length; i++) {
 
-userName.addEventListener("keyup", () => {
-saveScoreBtn.disabled = !userName.value;
-});
+        var createLi = document.createElement("li");
+        createLi.textContent = allScores[i].initials + " " + allScores[i].score;
+        highScore.appendChild(createLi);
 
-saveHighScore = e => {
-    console.log("clicked the save button!");
-    e.preventDefault();
-
-    constscore = {
-        score: Math.floor(Math.random() * 100),
-        name: userName.value
-    };
-    highScores.push(score);
-
-    highScores.sort( (a,b) => b.score - a.score);
-
-    highScores.splice(5);
-
-    localStorage.setItem("highScores", JSON.stringify(highScores));
-    window.location.href = "index.html";
-    console.log(highScores);
-};
+    }
+}
+// // Event listener to move to index page
+// goBack.addEventListener("click", function () {
+//     window.location.replace("./index.html");
+// });

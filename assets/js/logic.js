@@ -130,8 +130,7 @@ function gameOver() {
 
     createSubmit.addEventListener("click", function() {
         var initials = createInput.value;
-
-    if (initials === null) {
+     if (initials === null) {
         console.log("No Value Entered");
 
     } else {
