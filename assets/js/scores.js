@@ -1,30 +1,20 @@
 var highScore = document.querySelector("#highScore");
 var clear = document.querySelector("#clear");
-var goBack = document.querySelector("#goBack");
+var allscores = JSON.parse(window.localStorage.getItem("allscores")) || [];
 
-// // Event listener to clear scores 
-// clear.addEventListener("click", function () {
-//     localStorage.clear();
-//     location.reload();
-// });
-// Retreives local stroage 
-var allScores = JSON.parse(window.localStorage.getItem("allScores")) || [];
-allScores.push(finalScore);
-        //var newScore = JSON.stringify("allScores");
-        localStorage.setItem("allscores", JSON.stringify(allScores));
-        window.location.href = "highscores.html";
+var MAX_HIGH_SCORES = 5;
+// localStorage.setItem("allscores", JSON.stringify(allScores));
 
-if (allScores !== null) {
+clear.addEventListener("click", function () {
+    localStorage.clear();
+    location.reload();
+  });
 
-    for (var i = 0; i < allScores.length; i++) {
-
-        var createLi = document.createElement("li");
-        createLi.textContent = allScores[i].initials + " " + allScores[i].score;
-        highScore.appendChild(createLi);
-
-    }
+if (allscores !== null) {
+  for (var i = 0; i < allscores.length; i++) {
+    var createLi = document.createElement("li");
+    createLi.classList.add("scoreitem");
+    createLi.textContent = allscores[i].initials + " " + allscores[i].score;
+    highScore.appendChild(createLi);
+  }
 }
-// // Event listener to move to index page
-// goBack.addEventListener("click", function () {
-//     window.location.replace("./index.html");
-// });
