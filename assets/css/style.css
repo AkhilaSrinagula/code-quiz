@@ -72,14 +72,15 @@ h1  {
 }
 
 #container {
-text-align: center;
+display: flex;
+flex-direction:row;
 
 }
 
-/* #goBack {
-    position: absolute;
+.items {
+ flex: 50%;
+} 
 
-} */
 #codeQuiz {
     margin-top: 80px;
     position:relative;

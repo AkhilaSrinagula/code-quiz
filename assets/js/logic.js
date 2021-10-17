@@ -31,6 +31,7 @@ timer.addEventListener("click", function () {
         }, 1000);
 
     exhibit(startGame);
+
 });
 
 function exhibit(startGame) {
@@ -139,26 +140,19 @@ function gameOver() {
             score: secondsRemaining
         }
         console.log(finalScore);
-        window.location.href='highscores.html';
-        var allScores = localStorage.getitem("allScores");
-        if (allScores === null) {
-            allScores = [];
-        } else {
-            allScores = JSON.parse(allscores);
-        }
-        allScores.push(finalScore);
-        var newScore = JSON.stringify(areplacellScores);
-        localStorage.setItem("allscores", newScore);
         
+       var allScores = JSON.parse(window.localStorage.getItem("allScores")) || [];
+        //if (allScores === null) {
+            //allScores = [];
+       // } else {
+           // allScores = JSON.parse(allscores);
+       // }
+        allScores.push(finalScore);
+        //var newScore = JSON.stringify("allScores");
+        localStorage.setItem("allscores", JSON.stringify(allScores));
+        window.location.href = "highscores.html";
     }
     });
 
-    //var createGoBack = document.createElement("button");
-    //createGoBack.textContent = "Go Back";
+};
 
-    //codeQuiz.appendChild(createGoBack);
-
-     
-
-     
-}
