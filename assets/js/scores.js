@@ -1,6 +1,6 @@
 var highScore = document.querySelector("#highScore");
 var clear = document.querySelector("#clear");
-var allscores = JSON.parse(window.localStorage.getItem("allscores")) || [];
+var allscores = JSON.parse(localStorage.getItem("allscores")) || [];
 
 var MAX_HIGH_SCORES = 5;
 // localStorage.setItem("allscores", JSON.stringify(allScores));
@@ -18,3 +18,5 @@ if (allscores !== null) {
     highScore.appendChild(createLi);
   }
 }
+
+
