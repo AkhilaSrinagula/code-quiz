@@ -12,9 +12,9 @@ Javascript
 
 To get this project up and running, please follow the links below
 
-URL Link: 
+URL Link:  https://akhilasrinagula.github.io/code-quiz/
 
-Repo Link: 
+Repo Link: https://github.com/AkhilaSrinagula/code-quiz.git
 
 
 The first view of the application displays a button that starts the quiz.
